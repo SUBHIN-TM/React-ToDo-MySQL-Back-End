@@ -1,7 +1,5 @@
-// models/Task.js
-
 import { DataTypes } from 'sequelize';
-import sequelize from '../db.js';
+import sequelize from '../Config/MySQL_Connection.js';
 
 const Task = sequelize.define('Task', {
   title: {

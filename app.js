@@ -1,5 +1,5 @@
 import express from 'express';
-import sequelize from './db.js';
+import sequelize from './Config/MySQL_Connection.js'
 import User from './Models/User.js';
 import Category from './Models/Category.js';
 import Task from './Models/Task.js';
