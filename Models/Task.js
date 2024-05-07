@@ -1,5 +1,9 @@
+// models/Task.js
+
 import { DataTypes } from 'sequelize';
 import sequelize from '../Config/MySQL_Connection.js';
+import User from './User.js'; // Import the User model
+import Category from './Category.js'; // Import the Category model
 
 const Task = sequelize.define('Task', {
   title: {
@@ -19,5 +23,9 @@ const Task = sequelize.define('Task', {
     allowNull: true
   }
 });
+
+// Define associations
+Task.belongsTo(User, { foreignKey: 'user_id' }); // Each task belongs to a user
+Task.belongsTo(Category, { foreignKey: 'category_id' }); // Each task belongs to a category
 
 export default Task;
