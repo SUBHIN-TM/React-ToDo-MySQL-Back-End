@@ -34,14 +34,14 @@ const signUp =async(req,res)=>{
     try {
         console.log("signUp Post section");
         console.log(req.body);
-        const {username,email,password}=req.body
+        const {userName,email,password}=req.body
         const exitstingUser=await User.findOne({where:{email}});
         // console.log(exitstingUser);
         if(exitstingUser){
             return res.status(400).json({message: 'User Already Exists'});
         }
         const hashedPassword=await bycrypt.hash(password,10);
-        const newUser=await User.create({username,email,password:hashedPassword});
+        const newUser=await User.create({userName,email,password:hashedPassword});
         // console.log(newUser);
         res.status(201).json({message:'User registered succesfully',user:newUser})
 
