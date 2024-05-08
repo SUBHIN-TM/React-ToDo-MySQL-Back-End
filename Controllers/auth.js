@@ -20,7 +20,7 @@ const login=async (req,res)=>{
        const payload={id:user.id,email:user.email,username:user.username}
        const key=process.env.JWT_KEY
        const token=jwt.sign(payload,key)
-       console.log(token);
+    //    console.log(token);
        return res.status(200).json({message:"Login successfull",token})
     } catch (error) {
         console.error("error from login post section",error);
