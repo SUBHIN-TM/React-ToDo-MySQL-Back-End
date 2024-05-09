@@ -34,6 +34,21 @@ const deleteTask = async (req, res) => {
     }
 };
 
+const updateTask = async (req, res) => {
+    try {
+        console.log("Updating section");
+        console.log(req.body);
+        const taskId = req.body.taskId;
+        const userId = req.token.id;
+        console.log(taskId, userId);
+        const response = await Task.update(req.body.editedTask, { where: { user_id: userId, id: taskId } });
+        console.log(response);
+        res.status(200).json({ message: 'Updated Successfully' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+};
 
 
-export{addTask,deleteTask}
+export{addTask,deleteTask,updateTask}
