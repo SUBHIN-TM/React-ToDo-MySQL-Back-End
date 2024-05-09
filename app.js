@@ -1,16 +1,17 @@
 import express from 'express';
 import sequelize from './Config/MySQL_Connection.js'
 import cors from 'cors'
-import User from './Models/User.js';
-import Category from './Models/Category.js';
-import Task from './Models/Task.js';
 import userRoutes from './Routes/user.js'
+import adminRoutes from './Routes/Admin.js'
 
 const app = express();
 const port=3000
 app.use(cors())
 app.use(express.json())
 app.use('/',userRoutes)
+app.use('/admin',adminRoutes)
+
+
 
 sequelize.sync().then(() => {
   console.log('MYSQL Database Connected');

@@ -15,13 +15,29 @@ const Task = sequelize.define('Task', {
     allowNull: true
   },
   completed: {
-    type: DataTypes.BOOLEAN,
-    defaultValue: false
+    type: DataTypes.STRING,
+    defaultValue: "Pending"
   },
   due_date: {
     type: DataTypes.DATE,
     allowNull: true
+  },
+  user_id: {
+    type: DataTypes.INTEGER, // Use DataTypes.INTEGER for consistency
+    allowNull: false,
+    references: {
+        model: User,
+        key: 'id' // Assuming 'id' is the primary key in the User table
+    }
+},
+category_id: {
+  type: DataTypes.INTEGER, // Use DataTypes.INTEGER for consistency
+  allowNull: false,
+  references: {
+      model: Category,
+      key: 'id' // Assuming 'id' is the primary key in the User table
   }
+}
 });
 
 // Define associations

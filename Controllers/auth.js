@@ -17,7 +17,7 @@ const login=async (req,res)=>{
        if(!passwordMatch){
        return res.status(400).json({message:'Password wrong'})   
        }
-       const payload={id:user.id,email:user.email,username:user.username}
+       const payload={id:user.id,email:user.email,userName:user.userName}
        const key=process.env.JWT_KEY
        const token=jwt.sign(payload,key)
     //    console.log(token);
