@@ -4,7 +4,7 @@ import Category from "../Models/Category.js";
 const dashboard = async(req,res)=>{
 try {
     console.log("dashboard Post page");
-    console.log(req.token);
+    // console.log(req.token);
     const task=await Task.create({
         title:'Marriage',
         description:'valak marriage',

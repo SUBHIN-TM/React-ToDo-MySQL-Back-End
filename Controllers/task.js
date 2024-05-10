@@ -4,7 +4,7 @@ const addTask= async (req,res)=>{
     try {
 
         console.log("Task add section");
-        console.log(req.body);
+        // console.log(req.body);
         const {newCat,newDate,newTitle,newDesc} =req.body
         const task=await Task.create({
             title:newTitle,
@@ -23,7 +23,7 @@ const addTask= async (req,res)=>{
 
 const deleteTask = async (req, res) => {
     try {
-        console.log(req.body);
+        // console.log(req.body);
         const taskId = req.body.id;
         const userId = req.token.id;
         const response = await Task.destroy({ where: { user_id: userId, id: taskId } });
@@ -37,7 +37,7 @@ const deleteTask = async (req, res) => {
 const updateTask = async (req, res) => {
     try {
         console.log("Updating section");
-        console.log(req.body);
+        // console.log(req.body);
         const taskId = req.body.taskId;
         const userId = req.token.id;
         console.log(taskId, userId);

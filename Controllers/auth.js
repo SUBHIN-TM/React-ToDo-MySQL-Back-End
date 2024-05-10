@@ -7,7 +7,7 @@ env.config()
 const login=async (req,res)=>{
     try {
         console.log("Login Post section");
-        console.log(req.body);
+        // console.log(req.body);
         const {email,password}=req.body;
        const user=await User.findOne({where:{email}})
        if(!user){
@@ -33,7 +33,7 @@ const login=async (req,res)=>{
 const signUp =async(req,res)=>{
     try {
         console.log("signUp Post section");
-        console.log(req.body);
+        // console.log(req.body);
         const {userName,email,password}=req.body
         const exitstingUser=await User.findOne({where:{email}});
         // console.log(exitstingUser);
