@@ -40,7 +40,7 @@ const updateTask = async (req, res) => {
         // console.log(req.body);
         const taskId = req.body.taskId;
         const userId = req.token.id;
-        console.log(taskId, userId);
+        // console.log(taskId, userId);
         const response = await Task.update(req.body.editedTask, { where: { user_id: userId, id: taskId } });
         console.log(response);
         res.status(200).json({ message: 'Updated Successfully' });
